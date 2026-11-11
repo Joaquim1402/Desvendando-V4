@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" role="img" aria-labelledby="title">
+<title id="title">Símbolo do Desvendando o Céu Austral</title>
+<rect width="150" height="150" fill="#fff"/>
+<rect x="0" y="0" width="150" height="150" rx="27" fill="#37A5C8"/>
+<g fill="#fff">
+  <circle cx="73.26" cy="28.66" r="9"/>
+  <circle cx="114.44" cy="59.30" r="8.5"/>
+  <circle cx="31.76" cy="67.90" r="8.3"/>
+  <circle cx="94.94" cy="92.63" r="4.1"/>
+  <circle cx="74.52" cy="125.22" r="9.2"/>
+</g>
+</svg>
