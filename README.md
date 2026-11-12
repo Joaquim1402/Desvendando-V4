@@ -1,77 +1,42 @@
-# Desvendando o Céu Austral — site institucional
+# Site HTML estático — Desvendando o Céu Austral
 
-Site responsivo do Museu de Ciências Desvendando o Céu Austral, iniciativa de extensão da Universidade Federal Rural de Pernambuco (UFRPE).
+Esta pasta é uma versão estática, independente e responsiva do site institucional. Não precisa de React, npm, servidor Node ou bibliotecas externas para funcionar.
 
-## Conteúdo incluído
+## Como visualizar
+- Abra `index.html` no navegador.
+- As fotografias são locais e estão em `assets/`, portanto o site não depende de imagens remotas para a galeria e o conteúdo principal.
 
-- Proposta de popularização da ciência e formação de monitores.
-- Linha do tempo com registros públicos desde 2014, passando pelas mostras e ações itinerantes, visitas ao OASI, eventos de divulgação e inauguração do Museu em 2026.
-- Descrições de observações astronômicas, oficinas de foguetes, teatro científico, mediação, palestras, visitas técnicas e ações itinerantes.
-- Seção sobre o Observatório Astronômico do Sertão de Itaparica (OASI), a cooperação com o Observatório Nacional e a relação com a Semana POP.
-- Contextualização das ações educativas ligadas a Santa Filomena e ao Meteorito Serra do Magé, em Alagoinha.
-- Galeria baseada no acervo local de 16 fotografias recebido no projeto e na fotografia da equipe diante da cúpula do observatório. As imagens de conteúdo foram convertidas para WebP para reduzir o peso e melhorar o carregamento em celulares.
-- Contatos, WhatsApp, Instagram e e-mail do Museu.
-- Links de referência para notícias institucionais da UFRPE, Observatório Nacional, ALEPE e outros registros de atividades.
+## Como publicar
+Para hospedagem estática (por exemplo GitHub Pages, Netlify ou servidor institucional), envie **todo o conteúdo desta pasta** — `index.html`, `favicon.svg`, `favicon.png`, `favicon.ico`, `README.md` e `assets/` — para a pasta pública do projeto. Não envie somente o arquivo HTML, pois as fotografias são arquivos separados.
 
-## Desenvolvimento local
+## Recursos
+- Layout mobile-first, menu móvel e botões com área adequada para toque.
+- Galeria com visualização ampliada, fechamento por toque fora da imagem ou tecla Escape e bloqueio da rolagem de fundo.
+- Imagens WebP do acervo local do projeto, carregadas sob demanda quando apropriado.
+- Linha do tempo, descrição das atividades, seção do OASI, parcerias, fontes e contatos oficiais.
+- A página distingue registros documentados de inferências e não presume que toda cooperação configure convênio formal permanente.
 
-O projeto usa Vite, React, TypeScript, TanStack Start, Tailwind CSS e lucide-react. Para executar localmente, instale as dependências e rode o servidor de desenvolvimento:
-
-```sh
-npm install
-npm run dev
-```
-
-Para gerar a versão de produção:
-
-```sh
-npm run build
-```
-
-## Observação editorial
-
-O site distingue cooperações e ações documentadas de convênios jurídicos específicos: não presume que todas as atividades sejam regidas por um instrumento formal permanente. As datas e registros históricos têm links para fontes públicas quando disponíveis.
-
-
-## Ajustes para celular
-
-- Navegação móvel com área rolável, botões táteis maiores e fechamento automático após selecionar uma seção.
-- Layout mobile-first, textos ajustados para telas estreitas, ancoragem de seções considerando a barra fixa e suporte a áreas seguras do telefone.
-- Galeria com visualização ampliada; a imagem pode ser fechada tocando fora dela ou pressionando Escape em teclado.
-- Imagens locais de atividades servidas em WebP para economizar transferência de dados.
-
-
-## Versão HTML estática (sem React)
-
-A pasta `site-html/` contém uma versão completa em HTML, CSS e JavaScript nativo. Ela é independente das dependências do aplicativo React e usa imagens locais do acervo. Para testar, abra `site-html/index.html`. Para hospedar apenas a versão estática, envie todo o conteúdo de `site-html/` para a raiz pública do serviço de hospedagem; mantenha a subpasta `assets/` ao lado de `index.html`. Consulte `site-html/README.md` para instruções.
-
+## Fontes
+Os links institucionais e históricos estão listados na seção “Consulte as fontes e os registros” da página.
 
 ## Identidade visual
-
-O cabeçalho e o rodapé mantêm a identidade visual do Cruzeiro do Sul. O favicon foi atualizado posteriormente para o símbolo de cinco pontos brancos sobre fundo azul-turquesa, enviado para a revisão de 11/11/2026.
-
-## Revisão de interface e favicon (11/11/2026)
-
-- O favicon foi atualizado para o símbolo de cinco pontos brancos sobre fundo azul-turquesa em `public/` e `site-html/`, com SVG, PNG e ICO e URLs versionadas para reduzir o risco de cache antigo.
-- O tema claro/escuro continua disponível no site estático e na aplicação React/TanStack, salvando a escolha em `localStorage` quando permitido e respeitando a preferência de tema do sistema na primeira visita.
-- Os resultados, limites e métodos da revisão estão em `docs/LINKS-AUDIT.md` e `docs/REVISAO-RESPONSIVIDADE.md`.
-- Para publicar o site estático, envie todo o conteúdo de `site-html/`. Para reconstruir a aplicação, instale as dependências e execute `npm run build`.
+A marca do cabeçalho e do rodapé mantém o Cruzeiro do Sul. O favicon usa o símbolo de cinco pontos brancos sobre fundo azul-turquesa enviado para a revisão de 11/11/2026.
+- Alternância acessível entre tema claro e escuro, com preferência salva no navegador.
+- Favicon atualizado com o símbolo enviado, nos formatos SVG, PNG e ICO, e URL versionada para diminuir problemas de cache.
 
 
-## Revisão final de interface e navegação (19/10/2026)
-
-- A versão HTML estática foi testada no Chromium headless em 15 larguras (320–1440 px), nos temas claro e escuro: 30 combinações, sem transbordamento horizontal e sem erros de carregamento de imagem nos testes.
-- Em telas de até 430 px, os cartões de atividades organizam imagem e descrição verticalmente para melhorar leitura e evitar desalinhamento visual.
-- Melhorado o contraste dos rótulos pequenos e adicionado link de teclado “Pular para o conteúdo principal”.
-- Incluídas a matriz `docs/chromium-responsive-matrix.csv`, a auditoria `docs/LINKS-AUDIT.md` e o resumo estruturado `docs/static-audit.json`. A auditoria cobre os links do HTML estático e os principais destinos/imagens da rota React/TanStack.
-- Limitação documentada: o Chromium foi executado com o HTML estático carregado via `document.set_content()` porque o ambiente bloqueia navegação por URL. O app React/TanStack teve seus TSX verificados sintaticamente, mas não teve build de produção nesta sessão por falta de dependências instaladas.
+## Revisão de responsividade (19/10/2026)
+- No Chromium headless, foram verificados 15 tamanhos de tela entre 320 px e 1440 px nos temas claro e escuro. A matriz está em `../docs/chromium-responsive-matrix.csv`.
+- Em até 430 px, cada cartão de atividade coloca a foto acima da descrição, com proporção de imagem consistente.
+- Os links internos e imagens locais foram auditados; ver `../docs/LINKS-AUDIT.md`.
+- O teste de Chromium carregou o HTML através de conteúdo local (o ambiente bloqueia navegação por URL); veja `../docs/REVISAO-RESPONSIVIDADE.md` para o método e os limites.
 
 
-## Atualização de visitação, catálogo e identidade (11/11/2026)
+## Atualização de visitação e agendamento (11/11/2026)
 
-- Entrada com escolha entre solicitação de visita escolar e acesso de visitantes.
-- Formulário de solicitação escolar preparado para encaminhar os dados ao e-mail institucional por meio do FormSubmit. A caixa institucional precisa confirmar a ativação inicial do serviço antes dos envios automáticos.
-- Catálogo de atividades antecipado, com descrição e materiais necessários, incluindo oficina de foguetes PET. Palestras são informadas como ações sem calendário fixo, dependentes da equipe e de eventos.
-- Linha do tempo recolhida como conteúdo opcional; seção própria para professores e monitores citados na versão-base.
-- Removido o telefone de Miranda dos contatos.
-- Favicon substituído pelo símbolo de cinco pontos brancos sobre fundo azul-turquesa enviado para a revisão.
+- A página inicial oferece caminhos distintos para escolas/instituições e visitantes.
+- O formulário escolar encaminha os dados para `desvendandooceuaustral.df@ufrpe.br` por meio do serviço FormSubmit. Na primeira utilização, o serviço exige a confirmação/ativação do endereço institucional; os envios só serão encaminhados automaticamente depois dessa etapa.
+- O catálogo de atividades aparece no início e informa descrição e materiais necessários. Palestras e rodas de conversa são apresentadas como atividades sem calendário fixo, sujeitas à disponibilidade da equipe e dos eventos.
+- A linha do tempo fica recolhida e pode ser aberta por quem desejar consultar a história. A equipe é apresentada em seção própria.
+- O número de telefone de Miranda foi removido dos contatos públicos.
+- O favicon foi substituído pelo símbolo de cinco pontos brancos sobre fundo azul-turquesa fornecido para o projeto.
